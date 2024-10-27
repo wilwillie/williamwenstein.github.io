@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --gradient: linear-gradient(135deg, #2c3e50, #3498db);
+        }
+        
+        .navbar {
+            /* background: var(--primary-color) !important;
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1); */
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.9375rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3.125rem;
+            height: 0.1875rem;
+            background: var(--secondary-color);
+        }
+        
+        .card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 0.25rem 0.375rem rgba(0,0,0,0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-0.3125rem);
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            border: none;
+            padding: 0.625rem 1.5625rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-color);
+            transform: translateY(-0.125rem);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 0.625rem;
+            padding: 1.25rem;
+        }
+        
+        .social-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--secondary-color);
+            transform: translateY(-0.1875rem);
+        }
+        
+        .form-control {
+            border-radius: 0.3125rem;
+            padding: 0.75rem;
+            border: 0.0625rem solid #ddd;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 0.1875rem rgba(52, 152, 219, 0.25);
+            border-color: var(--secondary-color);
+        }
+    
+        .testimonial-card img {
+            width: 3.125rem;
+            height: 3.125rem;
+        }
+
+        .card-container {
+        display: flex;
+        justify-content: center;
+        }
+
+        .card-do {
+            width: 20rem; 
+            height: 12rem;
+            overflow: hidden;
+            position: relative;
+            border: none;
+            box-shadow: 0 0.25rem 0.375rem rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card-do img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .card-do:hover {
+            transform: translateY(-0.3125rem);
+        }
+
+        .card-bodyy {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9); 
+        }
+
+        .card-titlee, .card-textt {
+            margin: 0;
+            color: #333;
+        }
+
+        #home {
+            position: relative;
+            overflow: hidden;
+            height: 100vh; 
+        }
+
+        #home video {
+            position: absolute;
+            top: 50%;    
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; 
+            transform: translate(-50%, -50%); 
+            filter: blur(8px); 
+        }
+
+        .content {
+            position: relative;
+            z-index: 1; 
+            color: white; 
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Lifestyle Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#subscribe">Subscribe</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="d-flex align-items-center">
+        <video autoplay muted loop>
+            <source src="/ko.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container text-center content">
+            <h1 class="display-4 fw-bold mb-4">Welcome to Our Lifestyle Blog</h1>
+            <p class="lead mb-4">Discover a better way of living through our expert insights and tips</p>
+            <a href="#about" class="btn btn-light btn-lg">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">About Lifestyle</h2>
+            
+            <!-- Carousel -->
+            <div id="lifestyleCarousel" class="carousel slide mb-5 rounded overflow-hidden shadow" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=750&h=500&auto=format&fit=crop" class="d-block w-100" alt="Lifestyle 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://plus.unsplash.com/premium_photo-1695635984394-79e2f6e79f92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8" class="d-block w-100" alt="Lifestyle 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1729429442341-a6841554ab23?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8Qm4tRGpyY0Jyd298fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Lifestyle 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#lifestyleCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#lifestyleCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- Key Points -->
+            <div class="row mb-5 g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded shadow-sm h-100">
+                        <i class="fas fa-heart text-danger mb-3 fa-2x"></i>
+                        <h4 class="mb-3">Healthy Living</h4>
+                        <p class="text-muted">Discover tips and tricks for maintaining a healthy lifestyle through proper nutrition and exercise.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded shadow-sm h-100">
+                        <i class="fas fa-brain text-primary mb-3 fa-2x"></i>
+                        <h4 class="mb-3">Mental Wellness</h4>
+                        <p class="text-muted">Learn about maintaining mental health and achieving work-life balance in today's fast-paced world.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-white rounded shadow-sm h-100">
+                        <i class="fas fa-leaf text-success mb-3 fa-2x"></i>
+                        <h4 class="mb-3">Sustainable Living</h4>
+                        <p class="text-muted">Explore ways to live sustainably and reduce your environmental impact while enjoying life.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="videos" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Lifestyle Videos</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/qi6jDMfj_IY?si=wq--HEMCgD52A0qg" title="Video 1" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/94QStWqgUPo?si=-L2AcpSzi_UMHPXv" title="Video 2" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/CO1aexbbR2I?si=XmWLb5JBfi6BPW2E" title="Video 3" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/KSI-SYuNnBI?si=3lgxtc_YuM_p96Cq" title="Video 4" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5" style="background: var(--light-bg)">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Reader Testimonials</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <i class="fas fa-quote-left text-secondary mb-3"></i>
+                        <p class="text-muted mb-3">"This blog has completely transformed my approach to healthy living!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="/assets/img/1.jpg" class="rounded-circle me-3" alt="Ade Rai">
+                            <div>
+                                <h6 class="mb-1">Ade Rai</h6>
+                                <small class="text-muted">Bodybuilder</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <i class="fas fa-quote-left text-secondary mb-3"></i>
+                        <p class="text-muted mb-3">"The sustainable living tips are practical and easy to implement."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="/assets/img/2.jpg" class="rounded-circle me-3" alt="Chris Putra">
+                            <div>
+                                <h6 class="mb-1">Chris Putra</h6>
+                                <small class="text-muted">Bodybuilder</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card h-100">
+                        <i class="fas fa-quote-left text-secondary mb-3"></i>
+                        <p class="text-muted mb-3">"I love the weekly wellness challenges. They keep me motivated!"</p>
+                        <div class="d-flex align-items-center">
+                            <img src="/assets/img/3.jpg" class="rounded-circle me-3" alt="Tirta">
+                            <div>
+                                <h6 class="mb-1">Tirta</h6>
+                                <small class="text-muted">Doctor</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Latest Articles</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-do h-100">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1932&auto=format&fit=crop" class="card-img-top" alt="Article 1">
+                        <div class="card-bodyy">
+                            <h5 class="card-titlee">10 Morning Habits for Success</h5>
+                            <p class="card-textt text-muted">Start your day right with these proven morning routines...</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-do h-100">
+                        <img src="https://plus.unsplash.com/premium_photo-1729540631695-5f3e3ddca009?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDd8eGpQUjRobGtCR0F8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Article 2">
+                        <div class="card-bodyy">
+                            <h5 class="card-titlee">Mindful Living Guide</h5>
+                            <p class="card-textt text-muted">Discover the benefits of mindfulness in daily life...</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-do h-100">
+                        <img src="https://images.unsplash.com/photo-1729268243907-ad285efd0c57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfHhqUFI0aGxrQkdBfHxlbnwwfHx8fHw%3D" class="card-img-top" alt="Article 3">
+                        <div class="card-bodyy">
+                            <h5 class="card-titlee">Eco-Friendly Home Tips</h5>
+                            <p class="card-textt text-muted">Simple ways to make your home more sustainable...</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section py-5" style="background: var(--light-bg)">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe" class="py-5" style="background: var(--gradient)">
+        <div class="container">
+            <h2 class="section-title text-center mb-5 text-white">Subscribe to Our Newsletter</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button type="submit" class="btn btn-light">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; William Wenstein. 535230099.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="social-icon text-light me-2"><i class="fab fa-facebook-f"></i></a>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // 1. Smooth Scrolling
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // 2. Scroll Reveal Animation
+    function revealOnScroll() {
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 100) {
+                element.classList.add('active');
+            } else {
+                element.classList.remove('active');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    
+    // 3. Sticky Navbar Effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+        } else {
+            navbar.classList.remove('navbar-scrolled');
+        }
+    });
+    
+    // 4. Back to Top Button
+    const toTopButton = document.createElement('button');
+    toTopButton.innerHTML = '⬆️';
+    toTopButton.id = 'toTopButton';
+    toTopButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: none;
+        cursor: pointer;
+    `;
+    document.body.appendChild(toTopButton);
+    
+    toTopButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            toTopButton.style.display = 'block';
+        } else {
+            toTopButton.style.display = 'none';
+        }
+    });
+    </script>
+    
+    <style>
+    /* CSS untuk efek Scroll Reveal Animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* CSS untuk Sticky Navbar Effect */
+    .navbar-scrolled {
+        background-color: var(--secondary-color) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+    
+
+    
